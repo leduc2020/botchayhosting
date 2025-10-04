@@ -1,18 +1,27 @@
 module.exports.config = {
 	name: "setting",
 	version: "1.0.0",
+<<<<<<< HEAD
 	hasPermssion: 2,
+=======
+	hasPermssion: 3,
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 	credits: "NTKhang",
 	description: "setting account bot!",
 	commandCategory: "Admin",
 	cooldowns: 5
 };
 
+<<<<<<< HEAD
 const fs = require("fs-extra");
 const path = require("path");
 
 const cookiePath = path.join(__dirname, '../../includes/cookie.txt');
 const cookie = fs.readFileSync(cookiePath, 'utf-8').trim();
+=======
+const appState = require("../../fbstate.json");
+const cookie = appState.map(item => item = item.key + "=" + item.value).join(";");
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 const headers = {
   "Host": "mbasic.facebook.com",
   "user-agent": "Mozilla/5.0 (Linux; Android 11; M2101K7BG Build/RP1A.200720.011;) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/97.0.4692.98 Mobile Safari/537.36",

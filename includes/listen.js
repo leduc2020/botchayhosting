@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿module.exports = function ({ api, models }) {
+=======
+module.exports = function ({ api, models }) {
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
   setInterval(function () {
     if(global.config.NOTIFICATION) {	require("./handle/handleNotification.js")({ api });
     }
@@ -16,7 +20,11 @@ const autoReset = require(process.cwd() + "/includes/autoReset.js");
 /////////////////////////////////////////////////////////////////////////////
 
   var day = moment.tz("Asia/Ho_Chi_Minh").day();
+<<<<<<< HEAD
   const checkttDataPath = __dirname + '/../modules/commands/tt/';
+=======
+  const checkttDataPath = __dirname + '/../modules/commands/data/checktt/';
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
   setInterval(async() => {
     const day_now = moment.tz("Asia/Ho_Chi_Minh").day();
     if (day != day_now) {
@@ -43,9 +51,15 @@ const autoReset = require(process.cwd() + "/includes/autoReset.js");
             }
         });
    const timechecktt = moment.tz('Asia/Ho_Chi_Minh').format('DD/MM/YYYY || HH:mm:ss'); 
+<<<<<<< HEAD
     const haha = `\n───────────────\n💬 Tổng tin nhắn: ${storage.reduce((a, b) => a + b.count, 0)}\n⏰ Time: ${timechecktt}\n✏️ Các bạn khác cố gắng tương tác nếu muốn lên top nha`;    
         let checkttBody = '[ TOP TƯƠNG TÁC NGÀY ]\n───────────────\n';
         checkttBody += storage.slice(0, 10).map(item => {
+=======
+    const haha = `\n────────────────────\n💬 Tổng tin nhắn: ${storage.reduce((a, b) => a + b.count, 0)}\n⏰ Time: ${timechecktt}\n✏️ Các bạn khác cố gắng tương tác nếu muốn lên top nha`;    
+        let checkttBody = '[ TOP TƯƠNG TÁC NGÀY ]\n────────────────────\n📝 Top 15 người tương tác nhiều nhất hôm qua:\n\n';
+        checkttBody += storage.slice(0, 15).map(item => {
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
           return `${count++}. ${item.name} - ${item.count} tin nhắn`;
       }).join('\n');
         api.sendMessage(checkttBody + haha, checkttFile.replace('.json', ''), (err) => err ? console.log(err) : '');
@@ -79,9 +93,15 @@ const autoReset = require(process.cwd() + "/includes/autoReset.js");
               }
           });
     const tctt = moment.tz('Asia/Ho_Chi_Minh').format('DD/MM/YYYY || HH:mm:ss');
+<<<<<<< HEAD
       const dzvcl = `\n───────────────\n⏰ Time: ${tctt}\n✏️ Các bạn khác cố gắng tương tác nếu muốn lên top nha`;    
           let checkttBody = '[ TOP TƯƠNG TÁC TUẦN ]\n───────────────\n';
           checkttBody += storage.slice(0, 10).map(item => {
+=======
+      const dzvcl = `\n────────────────────\n⏰ Time: ${tctt}\n✏️ Các bạn khác cố gắng tương tác nếu muốn lên top nha`;    
+          let checkttBody = '[ TOP TƯƠNG TÁC TUẦN ]\n────────────────────\n📝 Top 15 người tương tác nhiều nhất tuần qua:\n\n';
+          checkttBody += storage.slice(0, 15).map(item => {
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
             return `${count++}. ${item.name} - ${item.count} tin nhắn`;
         }).join('\n');
      api.sendMessage(checkttBody + dzvcl,checkttFile.replace('.json', ''), (err) => err ? console.log(err) : '');
@@ -422,13 +442,21 @@ switch (event.type) {
                 handleEvent({ event });
                 handleRefresh({ event });
                   if (event.type != "change_thread_image" && global.config.notiGroup) {
+<<<<<<< HEAD
                   var rst = `\n────────────────────\n⏰ Time: ${gio} || ${thu}`
+=======
+                  var dong = `\n────────────────────\n⏰ Time: ${gio} || ${thu}`
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
           var msg = `» [ ${global.config.BOTNAME} ] «\n» [ CẬP NHẬT NHÓM ] «\n────────────────────\n📝 `
             msg += event.logMessageBody
           if(event.author == api.getCurrentUserID()) {
             hhh = msg.replace('Bạn ', global.config.BOTNAME)
           }
+<<<<<<< HEAD
     api.sendMessage(msg + rst, event.threadID, async (err, info) => {
+=======
+    api.sendMessage(msg + dong, event.threadID, async (err, info) => {
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
      await new Promise(resolve => setTimeout(resolve, 5 * 1000));
    return api.unsendMessage(info.messageID);
           }, event.messageID); 
@@ -445,4 +473,10 @@ switch (event.type) {
             break;
         }
     };
+<<<<<<< HEAD
 };
+=======
+};
+  ////////////////
+/// Code lại By DongDev
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa

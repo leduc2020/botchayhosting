@@ -20,7 +20,11 @@ module.exports.run = async function ({ api, event, args }) {
     const fs = require("fs");
     const moment = require("moment-timezone");
     var time = moment.tz('Asia/Ho_Chi_Minh').format('HH:mm:ss || DD/MM/YYYY');
+<<<<<<< HEAD
   const img = (await axios.get(`https://i.postimg.cc/J0Yc8x9D/wpJDaQW.jpg`, { responseType: "stream"})).data
+=======
+  const img = (await axios.get(`https://i.imgur.com/wpJDaQW.jpeg`, { responseType: "stream"})).data
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
   var content = args.join(" ");
   if (content.length == 0 && event.type != "message_reply") return global.utils.throwError(this.config.name, event.threadID,event.messageID);
   var translateThis = content.slice(0, content.indexOf(" ->"));

@@ -33,17 +33,29 @@ module.exports = function ({ api, models, Users, Threads, Currencies }) {
       // if(senderID === api.getCurrentUserID()) return
     const adminbot = require('./../../config.json');
 
+<<<<<<< HEAD
       if(typeof body === 'string' && body.startsWith(prefixbox) && !NDH.includes(senderID) && !ADMINBOT.includes(senderID) && adminbot.adminOnly == true) {return api.sendMessage(`Bé né tui ra, chỉ admin mới dùng được`, threadID, messageID);
     }
       if(typeof body === 'string' && body.startsWith(prefixbox) && !NDH.includes(senderID) && !ADMINBOT.includes(senderID) && adminbot.adminPaseOnly == true) {return api.sendMessage(`Chỉ admin bot mới được sử dụng bot trong chat riêng!`, threadID, messageID);
    }
      if(typeof body === 'string' && body.startsWith(prefixbox) && !NDH.includes(senderID) && !ADMINBOT.includes(senderID) && adminbot.ndhOnly == true) {return api.sendMessage(`Bé né tui ra, chỉ người hỗ trợ mới dùng được`, threadID, messageID);
+=======
+      if(typeof body === 'string' && body.startsWith(prefixbox) && !NDH.includes(senderID) && !ADMINBOT.includes(senderID) && adminbot.adminOnly == true) {return api.sendMessage(`⚠️ Chỉ admin bot mới có thể sử dụng bot!`, threadID, messageID);
+    }
+      if(typeof body === 'string' && body.startsWith(prefixbox) && !NDH.includes(senderID) && !ADMINBOT.includes(senderID) && adminbot.adminPaseOnly == true) {return api.sendMessage(`⚠️ Chỉ admin bot mới được sử dụng bot trong chat riêng!`, threadID, messageID);
+   }
+     if(typeof body === 'string' && body.startsWith(prefixbox) && !NDH.includes(senderID) && !ADMINBOT.includes(senderID) && adminbot.ndhOnly == true) {return api.sendMessage(`⚠️ Chỉ người hỗ trợ bot mới có thể sử dụng bot!`, threadID, messageID);
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
    }
 
     const dataAdbox = require('./../../modules/commands/data/dataAdbox.json');
     var threadInf = (threadInfo.get(threadID) || await Threads.getInfo(threadID));
     const findd = threadInf.adminIDs.find(el => el.id == senderID);
+<<<<<<< HEAD
     if(typeof body === 'string' && body.startsWith(prefixbox) && dataAdbox.adminbox.hasOwnProperty(threadID) && dataAdbox.adminbox[threadID] == true && !NDH.includes(senderID) && !ADMINBOT.includes(senderID) && !findd && event.isGroup == true ) return api.sendMessage(`Bé ra khác chơi đi, quản trị viên mới có quyền sử dụng`, event.threadID, event.messageID);
+=======
+    if(typeof body === 'string' && body.startsWith(prefixbox) && dataAdbox.adminbox.hasOwnProperty(threadID) && dataAdbox.adminbox[threadID] == true && !NDH.includes(senderID) && !ADMINBOT.includes(senderID) && !findd && event.isGroup == true ) return api.sendMessage(`⚠️ Chỉ quản trị viên nhóm mới có thể sử dụng bot!`, event.threadID, event.messageID);
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 
        if (userBanned.has(senderID) || threadBanned.has(threadID) || allowInbox == ![] && senderID == threadID) {
          if(!body.startsWith(PREFIX)) return
@@ -146,6 +158,7 @@ if(command) {
      if (fs.existsSync(path))data = JSON.parse(fs.readFileSync(path));
      if (data[threadID]) {
         if (ban = data[threadID].cmds.find($=>$.cmd == cmd)) {
+<<<<<<< HEAD
   if (ADMINBOT.includes(ban.author) && !NDH.includes(senderID) && /*!ADMINBOT.includes(senderID)*/ban.author!=senderID) return send(`Vào lúc: ${ban.time}\nAdmin: ${name(ban.author)}\nĐã cấm nhóm sử dụng lệnh ${cmd}\n✏️ Liên hệ với admin để được hỗ trợ`);
    if (is_qtv_box(ban.author) && !NDH.includes(senderID) && /*!is_qtv_box(senderID) && !ADMINBOT.includes(senderID)*/ban.author!=senderID) return send(`Vào lúc: ${ban.time}\nQtv nhóm: ${name(ban.author)}\nĐã cấm thành viên sử dụng lệnh ${cmd}`);
         };
@@ -157,11 +170,28 @@ if(command) {
             cmds: []}).cmds.find($=>$.cmd == cmd)) {
  if (ADMINBOT.includes(user_ban.author) && !NDH.includes(senderID) && !ADMINBOT.includes(senderID))return send(`Anh admin: ${name(user_ban.author)}\nĐã cấm bé sử dụng lệnh ${cmd}\nLiên hệ với ổng để được hỗ trợ\nBị cấm vào ${user_ban.time}`);
   if (is_qtv_box(user_ban.author) && !is_qtv_box(senderID) && !NDH.includes(senderID) && !ADMINBOT.includes(senderID))return send(`Qtv nhóm: ${name(user_ban.author)}\nĐã cấm bé sử dụng lệnh ${cmd}\nBị cấm vào ${user_ban.time}`);
+=======
+  if (ADMINBOT.includes(ban.author) && !NDH.includes(senderID) && /*!ADMINBOT.includes(senderID)*/ban.author!=senderID) return send(`[ BANNER COMMAND ]\n────────────────────\n🕑 Vào lúc: ${ban.time}\n👤 Admin bot: ${name(ban.author)}\n⛔ Đã cấm nhóm sử dụng lệnh ${cmd}\n✏️ Liên hệ với admin để được hỗ trợ\n────────────────────\n⏳ Uptime: ${H+$+M+$+S}\n⏰ Time: ${Tm}`);
+   if (is_qtv_box(ban.author) && !NDH.includes(senderID) && /*!is_qtv_box(senderID) && !ADMINBOT.includes(senderID)*/ban.author!=senderID) return send(`[ BANNER COMMAND ]\n────────────────────\n🕑 Vào lúc: ${ban.time}\n👤 Qtv nhóm: ${name(ban.author)}\n⛔ Đã cấm thành viên sử dụng lệnh ${cmd}\n────────────────────\n⏳ Uptime: ${H+$+M+$+S}\n⏰ Time: ${Tm}`);
+        };
+  if (all = (data[threadID].users[senderID] || {}).all) {
+  if (all.status == true && ADMINBOT.includes(all.author) && !NDH.includes(senderID) &&  !ADMINBOT.includes(senderID)) return send(`[ BANNER USER ]\n────────────────────\n🕑 Vào lúc: ${all.time}\n⚠️ Bạn đã bị admin bot: ${name(all.author)} cấm\n👤 Liên hệ với admin để được hỗ trợ\n────────────────────\n⏳ Uptime: ${H+$+M+$+S}\n⏰ Time: ${Tm}`);
+  if (all.status == true && is_qtv_box(all.author) && !NDH.includes(senderID) && !ADMINBOT.includes(sid) && !is_qtv_box(senderID)) return send(`[ BANNER USER ]\n────────────────────\n🕑 Vào lúc ${all.time}\n⛔ Bạn đã bị qtv box: ${name(all.author)} cấm\n────────────────────\n⏳ Uptime: ${H+$+M+$+S}\n⏰ Time: ${Tm}`);
+        };
+        if (user_ban = (data[threadID].users[senderID] || {
+            cmds: []}).cmds.find($=>$.cmd == cmd)) {
+ if (ADMINBOT.includes(user_ban.author) && !NDH.includes(senderID) && !ADMINBOT.includes(senderID))return send(`[ USERBAN COMMAND ]\n────────────────────\n🕑 Vào lúc: ${user_ban.time}\n👤 Admin bot: ${name(user_ban.author)}\n⛔ Đã cấm bạn sử dụng lệnh ${cmd}\n✏️ Liên hệ với admin để được hỗ trợ\n────────────────────\n⏳ Uptime: ${H+$+M+$+S}\n⏰ Time: ${Tm}`);
+  if (is_qtv_box(user_ban.author) && !is_qtv_box(senderID) && !NDH.includes(senderID) && !ADMINBOT.includes(senderID))return send(`[ USERBAN COMMAND ]\n────────────────────\n🕑 Vào lúc: ${user_ban.time}\n👤 Qtv nhóm: ${name(user_ban.author)}\n⛔ Đã cấm bạn sử dụng lệnh ${cmd}\n────────────────────\n⏳ Uptime: ${H+$+M+$+S}\n⏰ Time: ${Tm}`);
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
         }
      }
   };
 }
+<<<<<<< HEAD
      if ((_kJe82Q = process.cwd()+'/modules/commands/data/disable-command.json', fs.existsSync(_kJe82Q)))if (!ADMINBOT.includes(senderID) && !NDH.includes(senderID) && JSON.parse(fs.readFileSync(_kJe82Q))[threadID]?.[command.config.commandCategory] == true)return api.sendMessage(`Box không được phép sử dụng các lệnh thuộc nhóm " ${command.config.commandCategory} "\n👤 Liên hệ với ông chủ em để được hỗ trợ`, threadID);
+=======
+     if ((_kJe82Q = process.cwd()+'/modules/commands/data/disable-command.json', fs.existsSync(_kJe82Q)))if (!ADMINBOT.includes(senderID) && !NDH.includes(senderID) && JSON.parse(fs.readFileSync(_kJe82Q))[threadID]?.[command.config.commandCategory] == true)return api.sendMessage(`[ DISABLE COMMAND ]\n────────────────────\n⚠️ Box không được phép sử dụng các lệnh thuộc nhóm " ${command.config.commandCategory} "\n👤 Liên hệ với admin để được hỗ trợ\n────────────────────\n⏳ Uptime: ${H+$+M+$+S}\n⏰ Time: ${Tm}`, threadID);
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     
   if (commandBanned.get(threadID) || commandBanned.get(senderID)) {
     if (!NDH.includes(senderID) && !ADMINBOT.includes(senderID)) {
@@ -208,7 +238,11 @@ var threadInfoo = (threadInfo.get(threadID) || await Threads.getInfo(threadID));
     } else if(command.config.hasPermssion == 3) {
       quyenhan = "SUPPORT_BOT"
  }
+<<<<<<< HEAD
   if (command.config.hasPermssion > permssion) return api.sendMessage(`Lệnh: ${command.config.name}\nCó quyền hạn dành cho  ${quyenhan} nha bé yêu`, event.threadID, async (err, info) => {
+=======
+  if (command.config.hasPermssion > permssion) return api.sendMessage(`👤 Người dùng: ${ten}\n📝 Lệnh: ${command.config.name} có quyền hạn là ${quyenhan}\n⚠️ Bạn không có quyền sử dụng lệnh này\n────────────────────\n⏰ Time: ${Tm}`, event.threadID, async (err, info) => {
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
   await new Promise(resolve => setTimeout(resolve, 15 * 1000));
 return api.unsendMessage(info.messageID);
     }, event.messageID);
@@ -216,7 +250,11 @@ return api.unsendMessage(info.messageID);
  const timestamps = client.cooldowns.get(command.config.name);
     const expirationTime = (command.config.cooldowns || 1) * 1000;
     if (timestamps.has(senderID) && dateNow < timestamps.get(senderID) + expirationTime)
+<<<<<<< HEAD
   return api.sendMessage(`✏️ Lệnh "${command.config.name}" có thời gian chờ: ${command.config.cooldowns} giây\n⚠️ Bé vui lòng chờ ${((timestamps.get(senderID) + expirationTime - dateNow)/1000).toString().slice(0, 5)} giây`, threadID, async (err, info) => {
+=======
+  return api.sendMessage(`[ TIME CHỜ LỆNH ]\n────────────────────\n✏️ Lệnh "${command.config.name}" có thời gian chờ: ${command.config.cooldowns} giây\n⚠️ Tránh để bot bị spam, bạn vui lòng chờ ${((timestamps.get(senderID) + expirationTime - dateNow)/1000).toString().slice(0, 5)} giây\n────────────────────\n⏳ Uptime: ${H+$+M+$+S}\n⏰ Time: ${Tm}`, threadID, async (err, info) => {
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     await new Promise(resolve => setTimeout(resolve, 15 * 1000));
   return api.unsendMessage(info.messageID);
           }, messageID);

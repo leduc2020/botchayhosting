@@ -82,4 +82,8 @@ module.exports.run = async function ({ api, event }) {
         console.error(error);
         api.sendMessage("⚠️ Có lỗi xảy ra", event.threadID, event.messageID);
     }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa

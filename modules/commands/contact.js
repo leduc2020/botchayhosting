@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 /*
 * Author: DC-Nam
 * WARNING: Do not change the author's name
 */
 
 
+=======
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 class Command {
 	constructor(config) {
 			this.config = config;
@@ -14,7 +17,11 @@ class Command {
 			event: {
 					messageReply,
 					senderID,
+<<<<<<< HEAD
 				threadID, mentions//dijt me may truonggg
+=======
+				threadID, mentions
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 			},
 			args,
 			api,
@@ -92,14 +99,26 @@ class Command {
 
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 module.exports = new Command({
 	name: 'contact',
 	version: '0.0.1',
 	hasPermssion: 0,
+<<<<<<< HEAD
 	credits: 'Niio-team',//truong oc cawcj
 	description: 'send contact message bot',
 	commandCategory: 'Tiện ích',
 	usages: '[]',
 	cooldowns: 3,
 })
+=======
+	credits: 'DongDev',
+	description: 'Send contact thành viên trong nhóm',
+	commandCategory: 'Tiện ích',
+	usages: '[]',
+	cooldowns: 3,
+});
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa

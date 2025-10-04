@@ -1,14 +1,25 @@
+<<<<<<< HEAD
 const coinsup = 100000 //thay số coins được nhận khi đoán trúng
 const coinsdown = 20000 //thay số coins bị mất khi yêu cầu gợi ý
 const timeUnsend = 1 //thời gian thu hồi tin nhắn sau khi trả lời đúng trong thời gian timeUnsend
 const axios = require("axios")
+=======
+  const coinsup = 10000 //thay số coins được nhận khi đoán trúng
+const coinsdown = 3000 //thay số coins bị mất khi yêu cầu gợi ý
+const timeUnsend = 1 //thời gian thu hồi tin nhắn sau khi trả lời đúng trong thời gian timeUnsend
+const axios = global.nodemodule["axios"];
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 module.exports.config = {
     name: "dhbc",
     version: "1.2.0",
     hasPermssion: 0,
     credits: "D-Jukie",
     description: "Đuổi hình bắt chữ trên chính messenger của bạn!!!",
+<<<<<<< HEAD
     commandCategory: "Giải trí",
+=======
+    commandCategory: "game",
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     usages: "[1/2]",
     cooldowns: 10
 };
@@ -31,7 +42,11 @@ module.exports.handleReply = async function ({
         switch (event.body) {
         case "2": {
             api.unsendMessage(handleReply.messageID);
+<<<<<<< HEAD
             const res = await axios.get(`https://raw.githubusercontent.com/J-JRT/api1/mainV2/data.json`);
+=======
+            const res = await axios.get(`https://raw.githubusercontent.com/TuanDeepTry-14072003/API/mainV2/data.json`);
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
             const length1 = res.data.doanhinh.length
             const dataGame = res.data.doanhinh[Math.floor(Math.random() * length1)]
             const tukhoadung = dataGame.tukhoa;
@@ -55,7 +70,11 @@ module.exports.handleReply = async function ({
             imglove.push(fs.createReadStream(__dirname + "/cache/anh2.png"));
 
             var msg = {
+<<<<<<< HEAD
                 body: `🌸 𝗩𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗿𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝘁𝗿𝗮̉ 𝗹𝗼̛̀𝗶:\n𝗚𝗼̛̣𝗶 𝘆́: ${sokitu}\n\n🌸 𝗥𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝗻𝗵𝗮̣̂𝗽 "𝗚𝗼̛̣𝗶 𝘆́" - 𝗻𝗲̂́𝘂 𝗺𝘂𝗼̂́𝗻 𝘅𝗲𝗺 𝗴𝗼̛̣𝗶 𝘆́ 𝟮 (- 20,000 VNĐ)`,
+=======
+                body: `🌸 𝗩𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗿𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝘁𝗿𝗮̉ 𝗹𝗼̛̀𝗶:\n𝗚𝗼̛̣𝗶 𝘆́: ${sokitu}\n\n🌸 𝗥𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝗻𝗵𝗮̣̂𝗽 "𝗚𝗼̛̣𝗶 𝘆́" - 𝗻𝗲̂́𝘂 𝗺𝘂𝗼̂́𝗻 𝘅𝗲𝗺 𝗴𝗼̛̣𝗶 𝘆́ 𝟮 (-${coinsdown}$)`,
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
                 attachment: imglove
             }
             return api.sendMessage(msg, event.threadID, (error, info) => {
@@ -71,7 +90,11 @@ module.exports.handleReply = async function ({
         }
         case "1": {
             api.unsendMessage(handleReply.messageID);
+<<<<<<< HEAD
             const res = await axios.get(`https://raw.githubusercontent.com/J-JRT/api1/mainV2/data2.json`);
+=======
+            const res = await axios.get(`https://raw.githubusercontent.com/TuanDeepTry-14072003/API/mainV2/data2.json`);
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
             const length2 = res.data.doanhinh.length
             const dataGame = res.data.doanhinh[Math.floor(Math.random() * length2)]
             const tukhoadung = dataGame.tukhoa;
@@ -89,7 +112,11 @@ module.exports.handleReply = async function ({
             imglove.push(fs.createReadStream(__dirname + "/cache/anh1.png"));
 
             var msg = {
+<<<<<<< HEAD
                 body: `🌸 𝗩𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗿𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝘁𝗿𝗮̉ 𝗹𝗼̛̀𝗶:\n𝗚𝗼̛̣𝗶 𝘆́: ${sokitu}\n\n🌸 𝗥𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝗻𝗵𝗮̣̂𝗽 "𝗚𝗼̛̣𝗶 𝘆́" - 𝗻𝗲̂́𝘂 𝗺𝘂𝗼̂́𝗻 𝘅𝗲𝗺 𝗴𝗼̛̣𝗶 𝘆́ 𝟮 (- 20,000 VNĐ)`,
+=======
+                body: `🌸 𝗩𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗿𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝘁𝗿𝗮̉ 𝗹𝗼̛̀𝗶:\n𝗚𝗼̛̣𝗶 𝘆́: ${sokitu}\n\n🌸 𝗥𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝗻𝗵𝗮̣̂𝗽 "𝗚𝗼̛̣𝗶 𝘆́" - 𝗻𝗲̂́𝘂 𝗺𝘂𝗼̂́𝗻 𝘅𝗲𝗺 𝗴𝗼̛̣𝗶 𝘆́ 𝟮 (-${coinsdown}$)`,
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
                 attachment: imglove
             }
             return api.sendMessage(msg, event.threadID, (error, info) => {
@@ -114,9 +141,15 @@ module.exports.handleReply = async function ({
         const dapan = event.body
         if (dapan.toLowerCase() == "gợi ý" ) { 
             let balance = (await Currencies.getData(event.senderID)).money;
+<<<<<<< HEAD
             if (coinsdown > balance) return api.sendMessage(`🌸 𝗦𝗼̂́ 𝗱𝘂̛ 𝗯𝗶̣ 𝘁𝗵𝗶𝗲̂́𝘂, 𝗰𝗮̂̀𝗻  20,000 VNĐ 𝗻𝗲̂́𝘂 𝗺𝘂𝗼̂́𝗻 𝘅𝗲𝗺 𝗴𝗼̛̣𝗶 𝘆́`,event.threadID,event.messageID);
             await Currencies.decreaseMoney(event.senderID, parseInt(coinsdown))
             api.sendMessage(`🌸 𝗚𝗼̛̣𝗶 𝘆́ 𝗰𝗵𝗼 𝗯𝗮̣𝗻 𝗹𝗮̀: \n${suggestions} (- 20,000 VNĐ)`, event.threadID, event.messageID) 
+=======
+            if (coinsdown > balance) return api.sendMessage(`🌸 𝗦𝗼̂́ 𝗱𝘂̛ 𝗯𝗶̣ 𝘁𝗵𝗶𝗲̂́𝘂, 𝗰𝗮̂̀𝗻 ${coinsdown}$ 𝗻𝗲̂́𝘂 𝗺𝘂𝗼̂́𝗻 𝘅𝗲𝗺 𝗴𝗼̛̣𝗶 𝘆́`,event.threadID,event.messageID);
+            await Currencies.decreaseMoney(event.senderID, parseInt(coinsdown))
+            api.sendMessage(`🌸 𝗚𝗼̛̣𝗶 𝘆́ 𝗰𝗵𝗼 𝗯𝗮̣𝗻 𝗹𝗮̀: \n${suggestions} (-${coinsdown}$)`, event.threadID, event.messageID) 
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
         }
         else { 
         if (dapan.toLowerCase() == tukhoa) {
@@ -126,7 +159,11 @@ module.exports.handleReply = async function ({
             setTimeout(function () {
                 api.unsendMessage(handleReply.messageID);
             }, timeUnsend*1000);
+<<<<<<< HEAD
             return api.sendMessage(`🌸 ${name1.name} 𝘃𝘂̛̀𝗮 𝘁𝗿𝗮̉ 𝗹𝗼̛̀𝗶 𝗰𝗵𝗶́𝗻𝗵 𝘅𝗮́𝗰\n🌸 𝗞𝗲̂́𝘁 𝗾𝘂𝗮̉: ${tukhoa} (+ 100,000 VNĐ)`, event.threadID, event.messageID)
+=======
+            return api.sendMessage(`🌸 ${name1.name} 𝘃𝘂̛̀𝗮 𝘁𝗿𝗮̉ 𝗹𝗼̛̀𝗶 𝗰𝗵𝗶́𝗻𝗵 𝘅𝗮́𝗰\n🌸 𝗞𝗲̂́𝘁 𝗾𝘂𝗮̉: ${tukhoa} (+${coinsup}$)`, event.threadID, event.messageID)
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
         } else
             return api.sendMessage(`🌸 𝗦𝗮𝗶 𝗿𝗼̂̀𝗶 𝗻𝗵𝗮`, event.threadID, event.messageID)
     }
@@ -137,23 +174,38 @@ module.exports.handleReply = async function ({
             let balance = (await Currencies.getData(event.senderID)).money;
             if (coinsdown > balance) return api.sendMessage(`𝗦𝗼̂́ 𝗱𝘂̛ 𝗯𝗶̣ 𝘁𝗵𝗶𝗲̂́𝘂, 𝗰𝗮̂̀𝗻 ${coinsdown}$ 𝗻𝗲̂́𝘂 𝗺𝘂𝗼̂́𝗻 𝘅𝗲𝗺 𝗴𝗼̛̣𝗶 𝘆́`,event.threadID,event.messageID);
             await Currencies.decreaseMoney(event.senderID, parseInt(coinsdown))
+<<<<<<< HEAD
             api.sendMessage(`🌸 𝗚𝗼̛̣𝗶 𝘆́ 𝗰𝗵𝗼 𝗯𝗮̣𝗻 𝗹𝗮̀: \n${suggestions} (- 20,000 VNĐ)`, event.threadID, event.messageID) 
         }
             else {
             
+=======
+            api.sendMessage(`🌸 𝗚𝗼̛̣𝗶 𝘆́ 𝗰𝗵𝗼 𝗯𝗮̣𝗻 𝗹𝗮̀: \n${suggestions} (-${coinsdown}$)`, event.threadID, event.messageID) 
+        }
+            else {
+
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
         if (dapan1.toLowerCase() == tukhoa) {
             await Currencies.increaseMoney(event.senderID, parseInt(coinsup))
             var name1 = await Users.getData(event.senderID)
             setTimeout(function () {
                 api.unsendMessage(handleReply.messageID);
             }, timeUnsend*1000);
+<<<<<<< HEAD
             return api.sendMessage(`🌸 ${name1.name} 𝘃𝘂̛̀𝗮 𝘁𝗿𝗮̉ 𝗹𝗼̛̀𝗶 𝗰𝗵𝗶́𝗻𝗵 𝘅𝗮́𝗰\n🌸 𝗞𝗲̂́𝘁 𝗾𝘂𝗮̉: ${tukhoa} (+ 100,000 VNĐ)`, event.threadID, event.messageID)
+=======
+            return api.sendMessage(`🌸 ${name1.name} 𝘃𝘂̛̀𝗮 𝘁𝗿𝗮̉ 𝗹𝗼̛̀𝗶 𝗰𝗵𝗶́𝗻𝗵 𝘅𝗮́𝗰\n🌸 𝗞𝗲̂́𝘁 𝗾𝘂𝗮̉: ${tukhoa} (+${coinsup}$)`, event.threadID, event.messageID)
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
         } else
             return api.sendMessage(`🌸 𝗦𝗮𝗶 𝗿𝗼̂̀𝗶 𝗻𝗵𝗮`, event.threadID, event.messageID)
 }
 }
 default: break;
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 }
 }
 
@@ -166,7 +218,11 @@ module.exports.run = async function ({
     if ((this.config.credits) != "D-Jukie") { return api.sendMessage(`⚡️Phát hiện credits đã bị thay đổi`, event.threadID, event.messageID)}
     if (!args[0]) {
     return api.sendMessage(`💮===== [ 𝗗𝗛𝗕𝗖 ] =====💮\n━━━━━━━━━━━━━\n\n🌸 𝗩𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗰𝗵𝗼̣𝗻 𝗸𝗶𝗲̂̉𝘂 𝗰𝗵𝗼̛𝗶:\n\n𝟭: 𝗠𝗼̣̂𝘁 𝗮̉𝗻𝗵\n𝟮: 𝗛𝗮𝗶 𝗮̉𝗻𝗵\n\n🌸 𝗛𝗮̃𝘆 𝗿𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝗰𝗵𝗼̣𝗻 𝗻𝗵𝗲́`, event.threadID, (error, info) => {
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
             global.client.handleReply.push({
                 type: "choosee",
                 name: this.config.name,
@@ -195,7 +251,11 @@ module.exports.run = async function ({
             imglove.push(fs.createReadStream(__dirname + "/cache/anh1.png"));
 
             var msg = {
+<<<<<<< HEAD
                 body: `🌸 𝗩𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗿𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝘁𝗿𝗮̉ 𝗹𝗼̛̀𝗶:\n𝗚𝗼̛̣𝗶 𝘆́: ${sokitu}\n\n🌸 𝗥𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝗻𝗵𝗮̣̂𝗽 "𝗚𝗼̛̣𝗶 𝘆́" - 𝗻𝗲̂́𝘂 𝗺𝘂𝗼̂́𝗻 𝘅𝗲𝗺 𝗴𝗼̛̣𝗶 𝘆́ 𝟮 (- 20,000 VNĐ)`,
+=======
+                body: `🌸 𝗩𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗿𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝘁𝗿𝗮̉ 𝗹𝗼̛̀𝗶:\n𝗚𝗼̛̣𝗶 𝘆́: ${sokitu}\n\n🌸 𝗥𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝗻𝗵𝗮̣̂𝗽 "𝗚𝗼̛̣𝗶 𝘆́" - 𝗻𝗲̂́𝘂 𝗺𝘂𝗼̂́𝗻 𝘅𝗲𝗺 𝗴𝗼̛̣𝗶 𝘆́ 𝟮 (-${coinsdown}$)`,
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
                 attachment: imglove
             }
             return api.sendMessage(msg, event.threadID, (error, info) => {
@@ -235,7 +295,11 @@ module.exports.run = async function ({
             imglove.push(fs.createReadStream(__dirname + "/cache/anh2.png"));
 
             var msg = {
+<<<<<<< HEAD
                 body: `🌸 𝗩𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗿𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝘁𝗿𝗮̉ 𝗹𝗼̛̀𝗶:\n𝗚𝗼̛̣𝗶 𝘆́: ${sokiu}\n\n🌸 𝗥𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝗻𝗵𝗮̣̂𝗽 "𝗚𝗼̛̣𝗶 𝘆́" - 𝗻𝗲̂́𝘂 𝗺𝘂𝗼̂́𝗻 𝘅𝗲𝗺 𝗴𝗼̛̣𝗶 𝘆́ 𝟮 (- 20,000 VNĐ)`,
+=======
+                body: `🌸 𝗩𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗿𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝘁𝗿𝗮̉ 𝗹𝗼̛̀𝗶:\n𝗚𝗼̛̣𝗶 𝘆́: ${sokiu}\n\n🌸 𝗥𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝗻𝗮̀𝘆 𝘃𝗮̀ 𝗻𝗵𝗮̣̂𝗽 "𝗚𝗼̛̣𝗶 𝘆́" - 𝗻𝗲̂́𝘂 𝗺𝘂𝗼̂́𝗻 𝘅𝗲𝗺 𝗴𝗼̛̣𝗶 𝘆́ 𝟮 (-${coinsdown}$)`,
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
                 attachment: imglove
             }
             return api.sendMessage(msg, event.threadID, (error, info) => {

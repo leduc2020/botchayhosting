@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿const assets = require('@miraipr0ject/assets');
+=======
+const assets = require('@miraipr0ject/assets');
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 const crypto = require('crypto');
 const os = require("os");
 const axios = require("axios");

@@ -1,11 +1,19 @@
 module.exports.config = {
 	name: "thread",
 	version: "1.0.5",
+<<<<<<< HEAD
 	hasPermssion: 3,
 	credits: "Mirai Team",
 	description: "Cấm hoặc gỡ cấm nhóm",
 	commandCategory: "Admin",
 	usages: "[unban/ban/search] [ID or text]",
+=======
+	hasPermssion: 2,
+	credits: "Mirai Team",
+	description: "Cấm hoặc gỡ cấm nhóm",
+	commandCategory: "Admin",
+	usages: "[unban/ban/search] [ID or text] | [-b/-ub/-bc/-ubc/-s/-l/-i]",
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 	cooldowns: 5,
 	dependencies: {
 		"moment-timezone": ""

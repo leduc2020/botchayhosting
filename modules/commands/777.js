@@ -1,11 +1,18 @@
 module.exports.config = {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     name: "777",
     version: "1.0.1",
     hasPermssion: 0,
     credits: "Binee",
     description: "Quay số trái cây giống nhau :33",
+<<<<<<< HEAD
     commandCategory: "Game",
+=======
+    commandCategory: "game",
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     usages: "[số coin cần đặt]",
     cooldowns: 5,
 };

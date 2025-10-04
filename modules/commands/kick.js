@@ -2,8 +2,12 @@ module.exports.config = {
     name: "kick",
     version: "1.0.0",
     hasPermssion: 1,
+<<<<<<< HEAD
     Rent: 1,
     credits: "D-Jukie",
+=======
+    credits: "Mirai",
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     description: "Xoá người bạn cần xoá khỏi nhóm bằng cách tag hoặc reply",
     commandCategory: "Quản Trị Viên",
     usages: "[tag/reply/all]",
@@ -25,18 +29,42 @@ module.exports.run = async function ({
             var mention = Object.keys(event.mentions);
             for (let o in mention) {
                 setTimeout(() => {
+<<<<<<< HEAD
                     return api.removeUserFromGroup(mention[o], event.threadID)
+=======
+                    return api.removeUserFromGroup(mention[o], event.threadID, async function(err) {
+                      if (err) return api.sendMessage("Bot cần quyền quản trị viên để kick", event.threadID, event.messageID);
+                      return
+                    })
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
                 }, 1000)
             }
         } else {
         if (event.type == "message_reply") {
                 uid = event.messageReply.senderID
+<<<<<<< HEAD
                 return api.removeUserFromGroup(uid, event.threadID)
+=======
+                return api.removeUserFromGroup(event.messageReply.senderID, event.threadID, async function(err) {
+                  if (err) return api.sendMessage("Bot cần quyền quản trị viên để kick", event.threadID, event.messageID);
+                  return
+                })
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
             } else {
                 if (!args[0]) return api.sendMessage(`Vui lòng tag hoặc reply người cần kick`, event.threadID, event.messageID)
                 else {
                     if (args[0] == "all") {
                         const listUserID = event.participantIDs.filter(ID => ID != botID && ID != event.senderID);
+<<<<<<< HEAD
+=======
+                        //let adminBot = global.config.ADMINBOT;
+                      // let idAD = '100015647791389';
+                     //   for (var id of mention) {
+                        //if (id == api.getCurrentUserID()) return api.sendMessage("Mày muốn sao? :/", threadID, messageID);
+                        //if (id == idAD) return api.sendMessage(`Biết Hoàng Đỗ Gia Nguyên là ai không? Láo lol hả mạy? Boss vả nó bay hàm đi Boss`, threadID, messageID);
+                        //if (threadInfo.adminIDs.some(item => item.id == id)) return api.sendMessage("Không thể xóa Quản Trị Viên khỏi nhóm.", threadID, messageID);
+                      //  if (adminBot.includes(id)) return api.sendMessage("Không thể xóa người quản lí Bot khỏi nhóm", threadID, messageID);
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
                         for (let idUser in listUserID) {
                             setTimeout(() => {
                                 return api.removeUserFromGroup(idUser, event.threadID)
@@ -46,7 +74,11 @@ module.exports.run = async function ({
                 }
             }
         }
+<<<<<<< HEAD
     } catch {
+=======
+} catch {
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
         return api.sendMessage('ccc', event.threadID, event.messageID);
     }
 }

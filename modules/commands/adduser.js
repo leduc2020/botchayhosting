@@ -3,9 +3,14 @@ module.exports.config = {
     version: "1.0.0",
     hasPermssion: 0,
     credits: "D-Jukie",
+<<<<<<< HEAD
   usePrefix: false,
     description: "Thêm người dùng vào nhóm bằng link hoặc uid",
     commandCategory: "Quản Trị Viên",
+=======
+    description: "Thêm người dùng vào nhóm bằng link hoặc uid",
+    commandCategory: "Tiện ích",
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     usages: "[args]",
     cooldowns: 5
 };
@@ -16,8 +21,13 @@ const link = args.join(" ")
 if(!args[0]) return api.sendMessage('Vui lòng nhập link hoặc id người dùng muốn thêm vào nhóm!', threadID, messageID);
 var { participantIDs, approvalMode, adminIDs } = await api.getThreadInfo(threadID);
 if(link.indexOf(".com/")!==-1) {
+<<<<<<< HEAD
     const res = await axios.get(`https://ffb.vn/api/tool/get-id-fb?idfb=${link}`);
     var uidUser = res.data.id
+=======
+    const res = await api.getUID(args[0] || event.messageReply.body);
+    var uidUser = res
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     api.addUserToGroup(uidUser, threadID, (err) => {
     if (participantIDs.includes(uidUser)) return api.sendMessage(`Thành viên đã có mặt trong nhóm`, threadID, messageID);
     if (err) return api.sendMessage(`Không thể thêm thành viên vào nhóm`, threadID, messageID);

@@ -3,9 +3,14 @@ module.exports.config = {
   version: "1.0.1",
   hasPermssion: 0,
   credits: "Mirai Team",
+<<<<<<< HEAD
   description: "Play caro with AI",
   commandCategory: "Giải trí",
   usages: "ttt",
+=======
+  description: "Chơi caro with AI",
+  commandCategory: "Game",
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
   cooldowns: 5,
   usages: "x/o/delete/continue"
 };
@@ -131,7 +136,11 @@ function move(x, y, data) {
   var playerMove = [x, y];
   if (checkAvailableSpot(playerMove, availablePoint)) {
     placeMove({point: playerMove, player: 2, data});
+<<<<<<< HEAD
   } else return "Ô này đã được đánh dấu rồi!";
+=======
+  } else return "⚠️ Ô này đã được đánh dấu rồi!";
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
   solveAIMove({depth: 0, turn: 1, data});
   placeMove({point: AIMove, player: 1, data});
 }
@@ -145,10 +154,16 @@ function AIStart(data) {
   var point = [Math.round(Math.random()) * 2, Math.round(Math.random()) * 2];
   placeMove({point, player: 1, data});
 }
+<<<<<<< HEAD
 
 
 module.exports.handleReply = async function({ event, api, handleReply }) {
   let { body, threadID, messageID, senderID } = event;
+=======
+module.exports.handleReply = async function({ event, api, handleReply }) {
+  let { body, threadID, messageID, senderID } = event;
+  const Tm = (require('moment-timezone')).tz('Asia/Ho_Chi_Minh').format('HH:mm:ss | DD/MM/YYYY');
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
   if (!global.moduleData.tictactoe) global.moduleData.tictactoe = new Map();
   let data = global.moduleData.tictactoe.get(threadID);
   if (!data || data.gameOn == false) return;
@@ -161,6 +176,7 @@ module.exports.handleReply = async function({ event, api, handleReply }) {
     var temp = move(row, col, data);
     var lmao = "";
     if(checkGameOver(data)) {
+<<<<<<< HEAD
       var gayban = ["gà 😎", "non 😎", "tuổi gì 😎", "hơi non 😎", "gà vcl 😎", "easy game 😎"];
       if(checkAIWon(data)) lmao = `You lose! ${gayban[Math.floor(Math.random() * gayban.length)]}`;
       else if(checkPlayerWon(data)) lmao = "You win! :<";
@@ -168,6 +184,15 @@ module.exports.handleReply = async function({ event, api, handleReply }) {
       global.moduleData.tictactoe.delete(threadID);
     }
     var msg = lmao !== "" ? lmao : temp == undefined ? "Reply số ô để đánh dấu" : temp;
+=======
+      var gayban = ["gà 😎", "non 😎", "tuổi gì 😎", "hơi non 😎", "gà vcl 😎", "easy game 😎","oc như cyo 😏"];
+      if(checkAIWon(data)) lmao = `[ TIC TAC TOE - GLOW ]\n────────────────────\n🏆 Kết quả: Bạn thua\n✏️ Bạn ${gayban[Math.floor(Math.random() * gayban.length)]}\n⏰ Time: ${Tm}`;
+      else if(checkPlayerWon(data)) lmao = `[ TIC TAC TOE - GLOW ]\n────────────────────\n🏆 Kết quả: Bạn thắng\n⏰ Time: ${Tm}`;
+      else lmao = `[ TIC TAC TOE - GLOW ]\n────────────────────\n🏆 Kết quả: Hòa\n⏰ Time: ${Tm}`;
+      global.moduleData.tictactoe.delete(threadID);
+    }
+    var msg = lmao !== "" ? lmao : temp == undefined ? `[ TIC TAC TOE - GLOW ]\n────────────────────\n⚠️ Reply số ô để đánh dấu\n────────────────────` : temp;
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     api.sendMessage({ body: msg, attachment: await displayBoard(data)}, threadID, (error, info) => {
       global.client.handleReply.push({
         name: this.config.name,
@@ -175,7 +200,11 @@ module.exports.handleReply = async function({ event, api, handleReply }) {
         messageID: info.messageID
       })
     }, messageID);
+<<<<<<< HEAD
   } else return api.sendMessage("Số ô không hợp lệ!", threadID, messageID);
+=======
+  } else return api.sendMessage("⚠️ Số ô không hợp lệ!", threadID, messageID);
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 }
 
 module.exports.run = async function ({ event, api, args }) {
@@ -186,6 +215,7 @@ module.exports.run = async function ({ event, api, args }) {
   let data = global.moduleData.tictactoe.get(threadID) || { "gameOn": false, "player": "" };
   let concak = "" + prefix + this.config.name;
   let newData;
+<<<<<<< HEAD
   if (args.length == 0) return api.sendMessage("Vui lòng chọn X hoặc O", threadID, messageID);
   if (args[0].toLowerCase() == "delete") {
     global.moduleData.tictactoe.delete(threadID);
@@ -194,6 +224,15 @@ module.exports.run = async function ({ event, api, args }) {
   if (args[0].toLowerCase() == "continue") {
     if (!data.gameOn) return api.sendMessage("Không có dữ liệu! dùng " + concak + " x/o để chơi mới", threadID, messageID);
     return api.sendMessage({ body: "Reply số ô để đánh dấu", attachment: await displayBoard(data)}, threadID, (error, info) => {
+=======
+  if (args.length == 0) return api.sendMessage(`⚠️ Vui lòng chọn X hoặc O\nvd: ${prefix}ttt X/O`, threadID, messageID);
+if (args[0].toLowerCase() == "delete") { global.moduleData.tictactoe.delete(threadID);
+    return api.sendMessage("⚠️ Đã xóa bàn cờ!", threadID, messageID);
+  }
+  if (args[0].toLowerCase() == "continue") {
+    if (!data.gameOn) return api.sendMessage("⚠️ Không có dữ liệu! dùng " + concak + " x/o để chơi mới", threadID, messageID);
+    return api.sendMessage({ body: "⚠️ Reply số ô để đánh dấu", attachment: await displayBoard(data)}, threadID, (error, info) => {
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
       global.client.handleReply.push({
         name: this.config.name,
         author: senderID,
@@ -203,10 +242,17 @@ module.exports.run = async function ({ event, api, args }) {
   }
   if (!data.gameOn) {
     var abc = args[0].toLowerCase();
+<<<<<<< HEAD
     if (abc !== "x" && abc !== "o") return api.sendMessage("Vui lòng chọn X hoặc O", threadID, messageID);
     if (abc == "o") {
       newData = startBoard({ isX: false, data, threadID });
       api.sendMessage({ body: "Bạn đi trước!\nReply số ô để đánh dấu", attachment: await displayBoard(newData)}, threadID, (error, info) => {
+=======
+    if (abc !== "x" && abc !== "o") return api.sendMessage("⚠️ Vui lòng chọn X hoặc O", threadID, messageID);
+    if (abc == "o") {
+      newData = startBoard({ isX: false, data, threadID });
+      api.sendMessage({ body: "⚠️ Bạn đi trước!\n✏️ Reply số ô để đánh dấu", attachment: await displayBoard(newData)}, threadID, (error, info) => {
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
         global.client.handleReply.push({
           name: this.config.name,
           author: senderID,
@@ -217,7 +263,11 @@ module.exports.run = async function ({ event, api, args }) {
     if (abc == "x") {
       newData = startBoard({ isX: true, data, threadID });
       AIStart(newData);
+<<<<<<< HEAD
       api.sendMessage({ body: "AI đi trước!\nReply số ô để đánh dấu", attachment: await displayBoard(data)}, threadID,(error, info) => {
+=======
+      api.sendMessage({ body: "⚠️ AI đi trước!\n✏️ Reply số ô để đánh dấu", attachment: await displayBoard(data)}, threadID,(error, info) => {
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
         global.client.handleReply.push({
           name: this.config.name,
           author: senderID,
@@ -227,5 +277,10 @@ module.exports.run = async function ({ event, api, args }) {
     }
     newData.player = senderID;
     global.moduleData.tictactoe.set(threadID, newData);
+<<<<<<< HEAD
   } else return api.sendMessage("Nhóm này đã tồn tại bàn cờ\nDùng:\n" + concak + " continue -> tiếp tục\n" + concak + " delete -> xóa", threadID, messageID);
 }
+=======
+  } else return api.sendMessage("⚠️ Nhóm này đã tồn tại bàn cờ\n✏️ Dùng:\n" + concak + " continue -> tiếp tục\n" + concak + " delete -> xóa", threadID, messageID);
+    }
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa

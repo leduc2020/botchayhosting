@@ -9,7 +9,11 @@ module.exports.config = {
     hasPermssion: 0,
     credits: "ProCoderMew",
     description: "",
+<<<<<<< HEAD
     commandCategory: "Hành Động",
+=======
+    commandCategory: "Game",
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     usages: "[tag]",
     cooldowns: 5,
     dependencies: {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const fs = require("fs");
 module.exports.config = {
     name: "khoidong",
@@ -37,3 +38,15 @@ module.exports.onLoad = () => {
         fs.unlinkSync("restart.json");
     }
 };
+=======
+module.exports.config = {
+	name: "restart",
+	version: "1.0.0",
+	hasPermssion: 3,
+	credits: "Mirai Team",
+	description: "Khởi Động Lại Bot.",
+	commandCategory: "Admin",
+	cooldowns: 0
+        };
+module.exports.run = ({event, api}) =>api.sendMessage("Like !",event.threadID, () =>process.exit(1))
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa

@@ -1,4 +1,5 @@
 module.exports.config = {
+<<<<<<< HEAD
   name: "spamping",
   version: "2.0.0",
   hasPermssion: 1,
@@ -47,4 +48,53 @@ module.exports.run = async function ({ api, event, args }) {
   } else {
     api.sendMessage('Đang spam rồi cut!', threadID, messageID);
   }
+=======
+ name: "spamping",
+ version: "2.0.0",
+ hasPermssion: 3,
+ credits: "Vtuan",
+ description: "spam đến chết một nội dung",
+ commandCategory: "DongDev",
+ usages: "",
+ cooldowns: 1,
+ envConfig: {
+ spamDelay: 2 
+ }
+};
+
+const spamThreads = new Set(); 
+function delay(ms) {
+ return new Promise(resolve => setTimeout(resolve, ms));
+}
+module.exports.run = async function ({ api, event, args }) { 
+ const { threadID, messageID } = event;
+ const botID = api.getCurrentUserID();
+ const originalContent = (args.length != 0) ? args.join(" ") : "Le Nguyen dep trai vcl";
+ const listUserID = event.participantIDs.filter(ID => ID != botID && ID != event.senderID);
+
+ if (args[0] === "stop") {
+ if (spamThreads.has(threadID)) {
+ spamThreads.delete(threadID);
+ return api.sendMessage('Đã dừng spam!', threadID, messageID);
+ } 
+ return api.sendMessage('Không có quá trình spam nào đang diễn ra!', threadID, messageID);
+ } 
+
+ if (!spamThreads.has(threadID)) {
+ spamThreads.add(threadID);
+ api.sendMessage(`Bắt đầu spam!`, threadID, messageID);
+ while (spamThreads.has(threadID)) {
+ await delay(this.config.envConfig.spamDelay * 1000);
+
+ if (spamThreads.has(threadID)) {
+ let content = "‎" + originalContent;
+ let mentions = listUserID.map(idUser => ({ id: idUser, tag: content, fromIndex: 0 }));
+
+ api.sendMessage({ body: content, mentions }, threadID);
+ }
+ }
+ } else {
+ api.sendMessage('Đang spam rồi cut!', threadID, messageID);
+ }
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 };

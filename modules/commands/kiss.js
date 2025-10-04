@@ -1,15 +1,22 @@
+<<<<<<< HEAD
 /**
 * @author ProCoderMew
 * @warn Do not edit code or edit credits
 */
 
+=======
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 module.exports.config = {
     name: "kiss",
     version: "2.0.0",
     hasPermssion: 0,
     credits: "DinhPhuc",
     description: "",
+<<<<<<< HEAD
     commandCategory: "Tình Yêu",
+=======
+    commandCategory: "Box chat",
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     usages: "[tag]",
     cooldowns: 5,
     dependencies: {
@@ -71,8 +78,13 @@ async function circle(image) {
 module.exports.run = async function ({ event, api, args, Currencies }) { 
     const fs = global.nodemodule["fs-extra"];
     const ae = ["💚Yeuanh❤","💛Yeuem💜"];
+<<<<<<< HEAD
     const hc = Math.floor(Math.random() * 50) + 50;
     const rd = Math.floor(Math.random() * 1) + 1;
+=======
+    const hc = Math.floor(Math.random() * 101) + 101;
+    const rd = Math.floor(Math.random() * 10) + 1;
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     const { threadID, messageID, senderID } = event;
     const mention = Object.keys(event.mentions);
     var one = senderID, two = mention[0];

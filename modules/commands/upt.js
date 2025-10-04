@@ -4,7 +4,10 @@ const fs = require('fs-extra');
 const path = require('path');
 const { createCanvas, loadImage, registerFont } = require('canvas');
 const axios = require('axios');
+<<<<<<< HEAD
 const { execSync } = require('child_process');
+=======
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 
 const thuMucCache = path.join(__dirname, 'cache');
 let taiNguyenDaSanSang = false;
@@ -14,12 +17,17 @@ function dinhDangThoiGianHoatDong(uptimeSeconds) {
     const hours = Math.floor((uptimeSeconds % 86400) / 3600);
     const minutes = Math.floor((uptimeSeconds % 3600) / 60);
     const seconds = Math.floor(uptimeSeconds % 60);
+<<<<<<< HEAD
     return `${hours}:${minutes}:${seconds}`;
+=======
+    return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 }
 
 async function laySuDungCPU() {
     const startUsage = process.cpuUsage();
     const startTime = Date.now();
+<<<<<<< HEAD
     await new Promise(resolve => setTimeout(resolve, 500)); // Tăng thời gian đo lên 500ms
     const endUsage = process.cpuUsage(startUsage);
     const duration = (Date.now() - startTime) / 1000; // Chuyển sang giây
@@ -27,6 +35,12 @@ async function laySuDungCPU() {
     const cpuUsagePercent = (totalUsageMicros / (duration * 1000000)) * 100; // Chuyển đổi thành phần trăm
     console.log(`[DEBUG] CPU Usage - Start: ${startUsage.user + startUsage.system}, End: ${endUsage.user + endUsage.system}, Duration: ${duration}s, Percent: ${cpuUsagePercent.toFixed(1)}%`);
     return Math.max(0, Math.min(100, cpuUsagePercent.toFixed(1))); // Giới hạn từ 0% đến 100%
+=======
+    await new Promise(resolve => setTimeout(resolve, 100));
+    const endUsage = process.cpuUsage(startUsage);
+    const duration = Date.now() - startTime;
+    return (((endUsage.user + endUsage.system) / 1000) / duration * 100).toFixed(1);
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 }
 
 function veHinhChuNhatBoGoc(ctx, x, y, width, height, radius) {
@@ -71,6 +85,7 @@ function veThanhTienTrinh(ctx, x, y, width, height, progress) {
     ctx.restore();
 }
 
+<<<<<<< HEAD
 function getDriveInfo() {
     try {
         if (os.platform() === "win32") {
@@ -90,6 +105,10 @@ function getDriveInfo() {
 
 async function taoAnhThongKe({ thongTinBot, thongTinHeThong, thongTinHieuSuat, userName }) {
     const width = 1200, height = 1000; // Giữ chiều cao để chứa thông tin
+=======
+async function taoAnhThongKe({ thongTinBot, thongTinHeThong, thongTinHieuSuat }) {
+    const width = 1200, height = 800;
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext('2d');
 
@@ -101,8 +120,12 @@ async function taoAnhThongKe({ thongTinBot, thongTinHeThong, thongTinHieuSuat, u
         if (imgRatio > canvasRatio) { sWidth = sHeight * canvasRatio; sx = (anhNen.width - sWidth) / 2; } 
         else { sHeight = sWidth / canvasRatio; sy = (anhNen.height - sHeight) / 2; }
         ctx.drawImage(anhNen, sx, sy, sWidth, sHeight, 0, 0, width, height);
+<<<<<<< HEAD
     } catch (e) {
         console.error("[UPT] Lỗi tải ảnh nền:", e.message);
+=======
+    } catch {
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
         ctx.fillStyle = '#242526';
         ctx.fillRect(0, 0, width, height);
     }
@@ -149,6 +172,7 @@ async function taoAnhThongKe({ thongTinBot, thongTinHeThong, thongTinHieuSuat, u
         return y + 60;
     };
 
+<<<<<<< HEAD
     // Thông tin bot
     viTriY1 = veTieuDePhan(toaDoCot1, viTriY1, " THÔNG TIN BOT", "#18dcff");
     veDongThongTin(toaDoCot1, viTriY1, "Uptime:", thongTinBot.uptime); viTriY1 += chieuCaoDong;
@@ -182,12 +206,30 @@ async function taoAnhThongKe({ thongTinBot, thongTinHeThong, thongTinHieuSuat, u
 
     // Hiệu suất
     viTriY2 = veTieuDePhan(toaDoCot2, viTriY2, "TÀI NGUYÊN TOÀN HỆ THỐNG", "#32ff7e");
+=======
+    viTriY1 = veTieuDePhan(toaDoCot1, viTriY1, "THÔNG TIN BOT YUZ", "#18dcff");
+    veDongThongTin(toaDoCot1, viTriY1, "Uptime:", thongTinBot.uptime); viTriY1 += chieuCaoDong;
+    veDongThongTin(toaDoCot1, viTriY1, "Ping:", thongTinBot.ping); viTriY1 += chieuCaoDong;
+    veDongThongTin(toaDoCot1, viTriY1, "Prefix:", thongTinBot.prefix); viTriY1 += chieuCaoDong;
+    veDongThongTin(toaDoCot1, viTriY1, "Lệnh:", `${thongTinBot.commands} lệnh`); viTriY1 += chieuCaoDong;
+    veDongThongTin(toaDoCot1, viTriY1, "Người dùng:", `${thongTinBot.users} người`); viTriY1 += chieuCaoDong;
+    veDongThongTin(toaDoCot1, viTriY1, "Nhóm:", `${thongTinBot.groups} nhóm`); viTriY1 += 60;
+
+    viTriY1 = veTieuDePhan(toaDoCot1, viTriY1, "HỆ THỐNG", "#18dcff");
+    veDongThongTin(toaDoCot1, viTriY1, "Hệ điều hành:", thongTinHeThong.os); viTriY1 += chieuCaoDong;
+    veDongThongTin(toaDoCot1, viTriY1, "Nền tảng:", thongTinHeThong.platform); viTriY1 += chieuCaoDong;
+    veDongThongTin(toaDoCot1, viTriY1, "Node.js:", thongTinHeThong.nodeVersion);
+
+    viTriY2 = veTieuDePhan(toaDoCot2, viTriY2, "HIỆU SUẤT", "#32ff7e");
+    
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     ctx.font = '600 24px "Signika"';
     ctx.fillStyle = '#B0BEC5';
     ctx.fillText(`CPU (${thongTinHieuSuat.cpuCores} Cores):`, toaDoCot2, viTriY2);
     veThanhTienTrinh(ctx, toaDoCot2, viTriY2 + 30, 480, 30, thongTinHieuSuat.cpuUsage / 100);
     viTriY2 += 90;
 
+<<<<<<< HEAD
     ctx.fillText(`RAM (${thongTinHieuSuat.totalRam}GB):`, toaDoCot2, viTriY2);
     veThanhTienTrinh(ctx, toaDoCot2, viTriY2 + 30, 480, 30, thongTinHieuSuat.usedRam / thongTinHieuSuat.totalRam || 0);
     ctx.font = '600 18px "Signika"';
@@ -219,6 +261,24 @@ async function taoAnhThongKe({ thongTinBot, thongTinHeThong, thongTinHieuSuat, u
     ctx.fillText(`Dashboard cập nhật lúc ${moment().tz('Asia/Ho_Chi_Minh').format('HH:mm:ss DD/MM/YYYY')}`, width / 2, viTriY1);
     ctx.textAlign = 'right';
     ctx.fillText(`createad by Chicken`, width - 30, viTriY1 + 25);
+=======
+    ctx.fillText(`RAM (${thongTinHieuSuat.totalRam}MB):`, toaDoCot2, viTriY2);
+    veThanhTienTrinh(ctx, toaDoCot2, viTriY2 + 30, 480, 30, thongTinHieuSuat.usedRam / thongTinHieuSuat.totalRam);
+    viTriY2 += 90;
+
+    ctx.fillText(`HEAP (${thongTinHieuSuat.totalHeap}MB):`, toaDoCot2, viTriY2);
+    veThanhTienTrinh(ctx, toaDoCot2, viTriY2 + 30, 480, 30, thongTinHieuSuat.usedHeap / thongTinHieuSuat.totalHeap);
+    
+    ctx.textAlign = 'center';
+    ctx.font = '600 20px "Signika"';
+    ctx.fillStyle = '#B0BEC5';
+    ctx.fillText(`Dashboard cập nhật lúc ${moment().tz('Asia/Ho_Chi_Minh').format('HH:mm:ss DD/MM/YYYY')}`, width / 2, height - 50);
+
+    ctx.textAlign = 'right'; 
+    ctx.font = '600 18px "Signika"'; 
+    ctx.fillStyle = 'rgba(176, 190, 197, 0.8)'; 
+    ctx.fillText("Created by Lê Ngọc Thùy Linh (YUZ)", width - 30, height - 25);
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     
     const duongDanAnh = path.join(thuMucCache, `upt_${Date.now()}.png`);
     fs.writeFileSync(duongDanAnh, canvas.toBuffer('image/png'));
@@ -230,6 +290,7 @@ async function khoiTaoTaiNguyen() {
     const danhSachFont = [{ url: 'https://github.com/Kenne400k/font/raw/refs/heads/main/Signika-SemiBold.ttf', filename: 'Signika-SemiBold.ttf' }];
     const danhSachAnhNen = [
         'https://raw.githubusercontent.com/Kenne400k/commands/main/4k-Windows-11-Wallpaper-scaled.jpg',
+<<<<<<< HEAD
          'https://raw.githubusercontent.com/Kenne400k/commands/main/4k-Windows-11-Wallpaper-scaled.jpg',
         'https://raw.githubusercontent.com/Kenne400k/commands/main/HD-wallpaper-chill-vibes-3440-1440-r-chill-art.jpg',
         'https://raw.githubusercontent.com/Kenne400k/commands/main/hinh-nen-chill-cho-may-tinh-dep_040228906.jpg',
@@ -273,6 +334,10 @@ async function khoiTaoTaiNguyen() {
         'https://raw.githubusercontent.com/Kenne400k/background/refs/heads/main/bg29.jpg'
         
         // ... (các URL ảnh nền khác giữ nguyên)
+=======
+        'https://raw.githubusercontent.com/Kenne400k/commands/main/HD-wallpaper-chill-vibes-3440-1440-r-chill-art.jpg',
+        // ... (các link ảnh khác giữ nguyên)
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     ];
     
     for (const font of danhSachFont) {
@@ -281,7 +346,10 @@ async function khoiTaoTaiNguyen() {
             try {
                 const response = await axios({ method: 'GET', url: font.url, responseType: 'stream' });
                 response.data.pipe(fs.createWriteStream(duongDanLocal));
+<<<<<<< HEAD
                 console.log(`[UPT] Tải font ${font.filename} thành công`);
+=======
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
             } catch (error) { console.error(`[UPT] Lỗi tải font ${font.filename}:`, error.message); }
         }
     }
@@ -292,8 +360,12 @@ async function khoiTaoTaiNguyen() {
             try {
                 const response = await axios({ method: 'GET', url, responseType: 'arraybuffer' });
                 fs.writeFileSync(duongDanLocal, response.data);
+<<<<<<< HEAD
                 console.log(`[UPT] Tải background ${i} thành công`);
             } catch (error) { console.error(`[UPT] Lỗi tải background ${i}:`, error.message); }
+=======
+            } catch (error) { console.error(`[UPT] Lỗi tải background:`, error.message); }
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
         }
     }
     try {
@@ -308,6 +380,7 @@ khoiTaoTaiNguyen();
 async function layDuLieuHeThong(eventTimestamp) {
     const cpuUsage = await laySuDungCPU();
     const tongRam = os.totalmem(), ramTrong = os.freemem(), boNhoHeap = process.memoryUsage();
+<<<<<<< HEAD
     const driveInfo = getDriveInfo();
 
     const thongTinBot = {
@@ -317,18 +390,41 @@ async function layDuLieuHeThong(eventTimestamp) {
         commands: global.client.commands.size,
         processCpu: 0.0, // Giả lập, sẽ cập nhật sau nếu cần
         processRam: Math.round(boNhoHeap.rss / 1073741824 * 100) / 100 // RAM của bot (GB)
+=======
+
+    const rawPing = Math.max(0, Date.now() - eventTimestamp);
+    let pingStatus = '';
+    if (rawPing <= 100) pingStatus = 'rất mượt';
+    else if (rawPing <= 200) pingStatus = 'mượt';
+    else if (rawPing <= 500) pingStatus = 'lác nhẹ';
+    else if (rawPing <= 1000) pingStatus = 'trung bình';
+    else pingStatus = 'kém';
+
+    const thongTinBot = {
+        uptime: dinhDangThoiGianHoatDong(process.uptime()),
+        ping: `${rawPing}ms ${pingStatus}`,
+        prefix: global.config.PREFIX || "#",
+        commands: global.client.commands.size,
+        users: global.data.allUserID.length,
+        groups: global.data.allThreadID.length
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     };
 
     const thongTinHeThong = {
         os: os.type(),
         platform: os.platform(),
+<<<<<<< HEAD
         nodeVersion: process.version,
         architecture: os.arch(),
         cpuModel: os.cpus()[0].model
+=======
+        nodeVersion: process.version
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     };
 
     const thongTinHieuSuat = {
         cpuCores: os.cpus().length,
+<<<<<<< HEAD
         cpuUsage: parseFloat(cpuUsage), // Sử dụng giá trị mới từ laySuDungCPU
         totalRam: Math.round(tongRam / 1073741824 * 100) / 100,
         usedRam: Math.round((tongRam - ramTrong) / 1073741824 * 100) / 100,
@@ -338,11 +434,19 @@ async function layDuLieuHeThong(eventTimestamp) {
         diskTotal: driveInfo ? Math.round(driveInfo.total / 1073741824) : 100,
         diskUsed: driveInfo ? Math.round((driveInfo.total - driveInfo.free) / 1073741824) : 50,
         diskFree: driveInfo ? Math.round(driveInfo.free / 1073741824) : 50
+=======
+        cpuUsage: parseFloat(cpuUsage),
+        totalRam: Math.round(tongRam / 1048576),
+        usedRam: Math.round((tongRam - ramTrong) / 1048576),
+        totalHeap: Math.round(boNhoHeap.heapTotal / 1048576),
+        usedHeap: Math.round(boNhoHeap.heapUsed / 1048576)
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     };
     
     return { thongTinBot, thongTinHeThong, thongTinHieuSuat };
 }
 
+<<<<<<< HEAD
 async function getUserNameFromEvent(senderID) {
     let user = "Không xác định";
     try {
@@ -365,6 +469,20 @@ module.exports.config = {
 };
 
 module.exports.handleEvent = async ({ api, event, Users }) => {
+=======
+module.exports.config = {
+    name: "upt",
+    version: "7.0.0", 
+    hasPermission: 2,
+    credits: "Nguyễn Trương Thiện Phát (Pcoder)",
+    description: "Hiển thị dashboard hệ thống",
+    commandCategory: "Admin",
+    usages: "",
+    cooldowns: 10
+};
+
+module.exports.handleEvent = async ({ api, event }) => {
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     const content = event.body?.toLowerCase().trim();
     if (!["upt", "cpu", "ram"].includes(content)) return;
     if (!taiNguyenDaSanSang) {
@@ -376,8 +494,12 @@ module.exports.handleEvent = async ({ api, event, Users }) => {
     let imagePath;
     try {
         const duLieu = await layDuLieuHeThong(event.timestamp);
+<<<<<<< HEAD
         const userName = await getUserNameFromEvent(event.senderID); // Lấy tên từ Users
         imagePath = await taoAnhThongKe({ ...duLieu, userName });
+=======
+        imagePath = await taoAnhThongKe(duLieu);
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 
         await api.sendMessage({
             body: "📈 Thống kê hệ thống hiện tại:",
@@ -386,13 +508,21 @@ module.exports.handleEvent = async ({ api, event, Users }) => {
 
     } catch (err) {
         console.error("❌ handleEvent UPT error:", err);
+<<<<<<< HEAD
         api.sendMessage("⚠️ Đã xảy ra lỗi khi xử lý ảnh thống kê. Kiểm tra log console.", event.threadID, event.messageID);
+=======
+        api.sendMessage("⚠️ Đã xảy ra lỗi khi xử lý ảnh thống kê.", event.threadID, event.messageID);
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     } finally {
         if (imagePath) try { fs.unlinkSync(imagePath); } catch {}
     }
 };
 
+<<<<<<< HEAD
 module.exports.run = async ({ api, event, args, Users }) => {
+=======
+module.exports.run = async ({ api, event, args }) => {
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
     if (!taiNguyenDaSanSang) {
         return api.sendMessage("🕓 Bot đang khởi tạo tài nguyên, vui lòng thử lại sau giây lát...", event.threadID, event.messageID);
     }
@@ -404,8 +534,12 @@ module.exports.run = async ({ api, event, args, Users }) => {
     try {
         const startTime = Date.now();
         const duLieu = await layDuLieuHeThong(startTime);
+<<<<<<< HEAD
         const userName = await getUserNameFromEvent(event.senderID); // Lấy tên từ Users
         imagePath = await taoAnhThongKe({ ...duLieu, userName });
+=======
+        imagePath = await taoAnhThongKe(duLieu);
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
 
         await api.sendMessage({
             body: "📊 Đây là ảnh thống kê hệ thống.",
@@ -414,8 +548,16 @@ module.exports.run = async ({ api, event, args, Users }) => {
 
     } catch (err) {
         console.error("❌ run UPT error:", err);
+<<<<<<< HEAD
         api.sendMessage("❌ Có lỗi xảy ra khi tạo ảnh hệ thống. Kiểm tra log console.", event.threadID, event.messageID);
     } finally {
         if (imagePath) try { fs.unlinkSync(imagePath); } catch {}
     }
 };
+=======
+        api.sendMessage("❌ Có lỗi xảy ra khi tạo ảnh hệ thống.", event.threadID, event.messageID);
+    } finally {
+        if (imagePath) try { fs.unlinkSync(imagePath); } catch {}
+    }
+};
+>>>>>>> 4398b3a5fd9045b8de57d496d6bc325c61036aaa
